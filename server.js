@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const morgan = require("./frontend/node_modules/morgan");
-
+const path = require("path");
+app.use(express.static(path.join(__dirname + "/public")));
 // morgan logger
 app.use(morgan("dev"));
 
@@ -20,5 +21,3 @@ function logger(req, res, next) {
 app.listen(3001, function () {
   console.log("express server is running on port 3001");
 });
-
-module.exports = app;
