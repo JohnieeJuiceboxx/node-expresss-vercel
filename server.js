@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const morgan = require("./frontend/node_modules/morgan");
-
+const path = require("path");
+app.use(express.static(path.join(__dirname + "/public")));
 // morgan logger
 app.use(morgan("dev"));
 
